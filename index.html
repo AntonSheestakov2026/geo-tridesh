@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>ГЕО ТРИДЕШ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="menu" class="screen">
+      <div class="menu-bg"></div>
+      <div class="menu-stars" id="menuStars"></div>
+      <div class="menu-content">
+        <div class="logo-wrap">
+          <div class="logo-cube" aria-hidden="true">
+            <span class="face front"></span>
+            <span class="face side"></span>
+            <span class="face top"></span>
+          </div>
+          <h1 class="logo">ГЕО<br/><span>ТРИДЕШ</span></h1>
+        </div>
+        <p class="tagline">прыгай · порталы · демоны · как Geometry Dash</p>
+        <button id="btnPlay" class="btn-play">ИГРАТЬ</button>
+        <div class="menu-row">
+          <button id="btnLevels" class="btn-ghost">УРОВНИ</button>
+          <button id="btnHow" class="btn-ghost">КАК ИГРАТЬ</button>
+          <button id="btnMute" class="btn-ghost" title="музыка">🔊</button>
+        </div>
+        <p class="menu-hint">ПК: пробел / клик · телефон: тап · своя GD-стиль музыка</p>
+      </div>
+    </section>
+
+    <section id="levels" class="screen hidden">
+      <div class="levels-top">
+        <button id="btnBackLevels" class="btn-back">← МЕНЮ</button>
+        <button id="btnMuteLevels" class="btn-back">🔊 МУЗЫКА</button>
+      </div>
+      <h2 class="screen-title">ЛОКАЦИИ</h2>
+      <p class="screen-sub">50 уровней · от лёгких до супер-демонов</p>
+      <div id="levelFilters" class="level-filters">
+        <button type="button" class="filter-btn active" data-filter="all">ВСЕ</button>
+        <button type="button" class="filter-btn" data-filter="easy">ЛЕГКО</button>
+        <button type="button" class="filter-btn" data-filter="normal">НОРМА</button>
+        <button type="button" class="filter-btn" data-filter="hard">СЛОЖНО</button>
+        <button type="button" class="filter-btn" data-filter="insane">ИНСЕЙН</button>
+        <button type="button" class="filter-btn" data-filter="demon">ДЕМОН</button>
+        <button type="button" class="filter-btn" data-filter="extreme">ЭКСТРИМ</button>
+        <button type="button" class="filter-btn" data-filter="super">СУПЕР</button>
+      </div>
+      <div id="levelGrid" class="level-grid"></div>
+    </section>
+
+    <section id="howto" class="screen hidden">
+      <button id="btnBackHow" class="btn-back">← МЕНЮ</button>
+      <h2 class="screen-title">КАК ИГРАТЬ</h2>
+      <div class="howto-card">
+        <p><b>ПОРТАЛЫ</b> — меняют форму</p>
+        <p><b>КУБ</b> — тап = прыжок</p>
+        <p><b>КОРАБЛЬ</b> — зажми = лети вверх</p>
+        <p><b>ШАР</b> — тап = гравитация</p>
+        <p><b>НЛО</b> — тап = подскок</p>
+        <p><b>ВОЛНА</b> — зажми / отпусти</p>
+        <p><b>ДЕМОН / СУПЕР ДЕМОН</b> — самые жёсткие уровни</p>
+        <p><b>МУЗЫКА</b> — оригинальные треки в стиле GD</p>
+      </div>
+    </section>
+
+    <section id="play" class="screen hidden">
+      <div id="wrap">
+        <div id="topbar">
+          <button id="btnMenuGame" class="btn-mini">МЕНЮ</button>
+          <span id="levelName">—</span>
+          <button id="btnMuteGame" class="btn-mini">🔊</button>
+          <button id="btnLevelsGame" class="btn-mini">УРОВНИ</button>
+        </div>
+        <canvas id="game" width="960" height="540"></canvas>
+        <div id="hud">
+          <span id="progress">0%</span>
+          <span id="best">рекорд: 0%</span>
+          <span id="attempts">попытка 1</span>
+        </div>
+      </div>
+      <div id="fail" class="hidden">
+        <div class="panel crash">
+          <h2>КРАШ</h2>
+          <p id="failMsg">0%</p>
+          <button id="btnRetry" class="btn-play sm">ЕЩЁ РАЗ</button>
+          <button id="btnFailLevels" class="btn-ghost sm">УРОВНИ</button>
+        </div>
+      </div>
+      <div id="win" class="hidden">
+        <div class="panel win">
+          <h2>УРОВЕНЬ ПРОЙДЕН!</h2>
+          <p id="winMsg">Ты красавчик.</p>
+          <button id="btnNext" class="btn-play sm">ДАЛЬШЕ</button>
+          <button id="btnAgain" class="btn-ghost sm">ЗАНОВО</button>
+          <button id="btnWinLevels" class="btn-ghost sm">УРОВНИ</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="music.js"></script>
+  <script src="levels.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
